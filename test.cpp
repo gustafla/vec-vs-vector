@@ -4,23 +4,23 @@
 
 const size_t N = 100000;
 
-size_t testi() {
-	std::vector<size_t> taulu(N);
+size_t test() {
+	std::vector<size_t> vec(N);
 	for (size_t i = 0; i < N; i++) {
-		taulu[i] = i;
+		vec[i] = i;
 	}
-	int summa = 0;
+	int sum = 0;
 	for (size_t i = 0; i < N; i++) {
 		for (size_t j = i+1; j < N; j++) {
-			summa += taulu[i] * taulu[j];
+			sum += vec[i] * vec[j];
 		}
 	}
-	return summa;
+	return sum;
 }
 
 int main() {
 	auto start = std::chrono::high_resolution_clock::now();
-	size_t tulos = testi();
+	size_t result = test();
 	auto finish = std::chrono::high_resolution_clock::now();
-	std::cout << tulos << " aikaa kului " << std::chrono::duration_cast<std::chrono::nanoseconds>(finish-start).count() << std::endl;
+	std::cout << result << " duration was " << std::chrono::duration_cast<std::chrono::nanoseconds>(finish-start).count() << std::endl;
 }
