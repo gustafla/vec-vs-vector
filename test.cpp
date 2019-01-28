@@ -11,8 +11,9 @@ size_t test() {
 	}
 	int sum = 0;
 	for (size_t i = 0; i < N; i++) {
+		size_t a = vec[i];
 		for (size_t j = i+1; j < N; j++) {
-			sum += vec[i] * vec[j];
+			sum += a * vec[j];
 		}
 	}
 	return sum;

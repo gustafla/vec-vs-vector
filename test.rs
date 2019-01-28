@@ -9,8 +9,9 @@ fn test() -> usize {
     }
     let mut sum = 0;
     for i in 0..N {
-        for j in i+1..N {
-            sum += vec[i] * vec[j];
+        let a = vec[i];
+        for b in &vec[i+1..N] {
+            sum += a * b;
         }
     }
     sum
