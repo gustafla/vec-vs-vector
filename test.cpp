@@ -21,6 +21,7 @@ size_t test() {
 int main() {
 	auto start = std::chrono::high_resolution_clock::now();
 	size_t result = test();
-	auto finish = std::chrono::high_resolution_clock::now();
-	std::cout << result << " duration was " << std::chrono::duration_cast<std::chrono::nanoseconds>(finish-start).count() << std::endl;
+	auto duration = std::chrono::high_resolution_clock::now() - start;
+	auto seconds = std::chrono::duration_cast<std::chrono::seconds>(duration);
+	std::cout << result << std::endl << "duration was " << seconds.count() << "s " << (duration-seconds).count() << "ns" << std::endl;
 }
